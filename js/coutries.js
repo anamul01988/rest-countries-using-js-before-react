@@ -3,17 +3,19 @@ const loadCountries = () =>{
     .then(res => res.json())
     .then(data => displayCountries(data));
 }
+loadCountries();   
 
 const displayCountries = countries =>{
     console.log(countries[0]);
     const countriesHTML = countries.map(country => getCountryHTML(country));
     console.log(countriesHTML[0]);
+
     const container = document.getElementById('countries');
-    container.innerHTML = countriesHTML.join(' ');
+    container.innerHTML = countriesHTML.join(' ');   //sobgula value k ekta sigle quetation er moddhe niye ashbe 
 }
 
 // option 3
-const getCountryHTML = ({name, flags, area, region}) =>{
+const getCountryHTML = ({name, flags, area, region}) =>{ //object destructured
     return `
         <div class="country">
             <h2>${name.common}</h2>
@@ -46,4 +48,3 @@ const getCountryHTML = ({name, flags, area, region}) =>{
 //     `
 // }
 
-loadCountries();
